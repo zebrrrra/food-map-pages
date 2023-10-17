@@ -6,8 +6,12 @@ const useSelectMarkerHook = () => {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const { isSmallScreen, listRef } = useGlobal();
   const router = useRouter();
+  console.log('qq', selectedMarker)
+
   useEffect(() => {
     // 每次點擊marker
+    // FIXME 點擊marker會出現invalid request
+    console.log(selectedMarker)
     if (selectedMarker) {
       if (isSmallScreen) {
         const target = listRef.current.querySelector(`#${selectedMarker.id}`);

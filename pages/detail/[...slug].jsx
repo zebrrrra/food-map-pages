@@ -21,30 +21,30 @@ const DetailPage = () => {
     currentPosition.lng,
   );
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["getDetail", { id: slug[1] }],
-    queryFn: ({ queryKey }) =>
-      getDetailData({
-        id: queryKey[1].id,
-        map: mapRef.current,
-        location: latLng,
-      }),
-    refetchOnWindowFocus: false,
-    retry: false,
-  });
-  if (isLoading) {
-    return <Loading />;
-  }
-  const handleClose = () => {
-    if (isSmallScreen) {
-      setIsOpenModal(false);
-    }
-    router.back();
-  };
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["getDetail", { id: slug[1] }],
+  //   queryFn: ({ queryKey }) =>
+  //     getDetailData({
+  //       id: queryKey[1].id,
+  //       map: mapRef.current,
+  //       location: latLng,
+  //     }),
+  //   refetchOnWindowFocus: false,
+  //   retry: false,
+  // });
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
+  // const handleClose = () => {
+  //   if (isSmallScreen) {
+  //     setIsOpenModal(false);
+  //   }
+  //   router.back();
+  // };
 
   return (
     <>
-      {data && (
+      {/* {data && (
         <>
           {isSmallScreen ? (
             <>
@@ -58,7 +58,7 @@ const DetailPage = () => {
             <Detail data={data} onClose={handleClose} />
           )}
         </>
-      )}
+      )} */}
     </>
   );
 };
