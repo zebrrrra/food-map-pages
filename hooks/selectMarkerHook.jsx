@@ -6,10 +6,8 @@ const useSelectMarkerHook = () => {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const { isSmallScreen, listRef } = useGlobal();
   const router = useRouter();
-  console.log('qq', selectedMarker)
 
   useEffect(() => {
-    console.log(selectedMarker)
     if (!selectedMarker) return
     if (selectedMarker) {
       if (isSmallScreen) {

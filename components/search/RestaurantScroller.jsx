@@ -7,7 +7,6 @@ const RestaurantScroller = ({ data }) => {
   const { listRef } = useGlobal();
 
   const handleCardClick = (value) => {
-    console.log(value);
     if (typeof value === "object") {
       router.push(`/detail/${value.name}/${value.id}`);
     }

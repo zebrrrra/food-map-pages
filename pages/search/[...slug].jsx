@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 const SearchPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug);
   const { currentPosition, mapRef, setResult } = useGlobal();
 
   const { data, isLoading, isSuccess, error, isError } = useQuery({
@@ -33,7 +32,6 @@ const SearchPage = () => {
   // 在資料回來之前已經執行過一次
   useEffect(() => {
     if (isSuccess) {
-      console.log("search page", data);
       mapRef.current.panTo(
         new google.maps.LatLng(currentPosition.lat, currentPosition.lng),
       );

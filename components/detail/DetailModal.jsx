@@ -18,7 +18,6 @@ const DetailModal = ({ isOpen, onClose, data }) => {
     index: new Date().getDay(),
     array: data.detail.data.opening_hours.weekday_text,
   });
-  console.log(data);
   return (
     <Transition show={isOpen} as={React.Fragment}>
       <Dialog onClose={onClose} className="relative z-50 md:h-full md:w-full">

@@ -36,16 +36,12 @@ const SearchBar = () => {
     },
     debounce: 1000,
   });
-  // const test = () => {
-  //   console.log(options)
-  // }
   const onSearchNavigate = (e) => {
     e.preventDefault();
     if (!currentPosition) return alert("請提供位置");
     if (!value.trim()) return alert("請輸入文字");
     clearSuggestions();
     const encodeOptions = encodeURIComponent(JSON.stringify(options));
-    console.log(options);
 
     router.push(
       `/search/${value}/@${currentPosition.lat},${currentPosition.lng}/options=${encodeOptions}`,
@@ -62,7 +58,6 @@ const SearchBar = () => {
       <div
         className={`fixed left-4 top-4 w-[50vw] md:left-0 md:top-0 md:ml-2 md:mt-1 md:w-[30vw] md:translate-x-[unset]`}
       >
-        {/* <button onClick={test}>測試</button> */}
         <Combobox value={value} onChange={setValue}>
           <div className="relative mt-1 md:w-[calc(18rem-58px)] lg:w-[412px]">
             {/* filter鈕 */}

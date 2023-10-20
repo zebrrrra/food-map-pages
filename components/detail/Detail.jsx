@@ -17,7 +17,6 @@ const Detail = ({ onClose, data }) => {
     index: new Date().getDay(),
     array: data.detail.data.opening_hours.weekday_text,
   });
-  console.log(data);
 
   return (
     <div

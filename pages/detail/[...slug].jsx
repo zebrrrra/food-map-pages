@@ -14,7 +14,6 @@ const DetailPage = () => {
   const { isSmallScreen, mapRef, currentPosition } = useGlobal();
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug);
 
   const latLng = new google.maps.LatLng(
     currentPosition.lat,

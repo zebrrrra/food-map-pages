@@ -9,7 +9,6 @@ const containerStyle = {
 
 const Map = ({ children }) => {
   const { currentPosition, mapRef } = useGlobal();
-  console.log("currentPosition", currentPosition);
   const latLng = new google.maps.LatLng(
     currentPosition.lat,
     currentPosition.lng,
