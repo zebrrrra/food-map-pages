@@ -29,8 +29,8 @@ const SearchPage = () => {
     refetchOnWindowFocus: false,
     retry: false,
   });
-  在資料回來之前已經執行過一次
 
+  // 在資料回來之前已經執行過一次
   useEffect(() => {
     if (isSuccess) {
       console.log("search page", data);

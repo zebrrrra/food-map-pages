@@ -10,29 +10,29 @@ import {
 const GlobalContext = createContext();
 
 export const GlobalContextComponent = ({ children }) => {
-  const [isSmallScreen, setIsSmallScreen] = useState(true);
+  const mediaQueryList = window.matchMedia("(max-width: 768px)");
+  const [isSmallScreen, setIsSmallScreen] = useState(mediaQueryList.matches);
   const [currentPosition, setCurrentPosition] = useState({ lat: 0, lng: 0 });
   const [result, setResult] = useState(null);
-  const mmObj = window.matchMedia("(max-width: 768px)");
 
   const mapRef = useRef();
   const listRef = useRef();
 
   const handleResize = useCallback(() => {
-    if (mmObj.matches) {
-      /* 窗口小于或等于 768 像素 */
+    if (mediaQueryList.matches) {
+      //  窗口小於768 像素 
       setIsSmallScreen(true);
     } else {
-      /*窗口大于 768 像素 */
+      // 窗口大於768 像素 
       setIsSmallScreen(false);
     }
   }, []);
 
   useEffect(() => {
-    mmObj.addEventListener("change", handleResize);
+    mediaQueryList.addEventListener("change", handleResize);
 
     return () => {
-      mmObj.removeEventListener("change", handleResize);
+      mediaQueryList.removeEventListener("change", handleResize);
     };
   }, [handleResize]);
 
