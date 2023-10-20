@@ -9,9 +9,8 @@ const useSelectMarkerHook = () => {
   console.log('qq', selectedMarker)
 
   useEffect(() => {
-    // 每次點擊marker
-    // FIXME 點擊marker會出現invalid request
     console.log(selectedMarker)
+    if (!selectedMarker) return
     if (selectedMarker) {
       if (isSmallScreen) {
         const target = listRef.current.querySelector(`#${selectedMarker.id}`);

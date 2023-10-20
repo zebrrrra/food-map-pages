@@ -29,19 +29,22 @@ const SearchPage = () => {
     refetchOnWindowFocus: false,
     retry: false,
   });
-  // 在資料回來之前已經執行過一次
-  console.log(data);
-  console.log(error);
+  在資料回來之前已經執行過一次
 
   useEffect(() => {
     if (isSuccess) {
       console.log("search page", data);
+      mapRef.current.panTo(
+        new google.maps.LatLng(currentPosition.lat, currentPosition.lng),
+      );
+      mapRef.current.setZoom(13);
       setResult(data);
     }
     if (isError) {
       alert(`因為${error}，請重新搜尋`);
     }
   }, [slug[0], slug[1], slug[2], isSuccess, isError]);
+
 
   if (isLoading) {
     return <Loading />;

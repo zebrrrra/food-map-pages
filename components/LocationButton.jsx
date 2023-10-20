@@ -1,5 +1,5 @@
 import Image from "next/image";
-import location from "@/public/location-pin.png";
+import location from "@/public/my-location.png"
 import { useGlobal } from "@/contexts/globalContext";
 
 const LocationButton = () => {
