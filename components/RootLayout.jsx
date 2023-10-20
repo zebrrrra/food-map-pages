@@ -1,5 +1,5 @@
 import { GlobalContextComponent } from "@/contexts/globalContext";
-import { MarkerContextProvider } from "@/contexts/hoverMarkerContext";
+import { MarkerContextProvider } from "@/contexts/markerContext";
 import Providers from "./Providers";
 import SearchBar from "./SearchBar";
 import Map from "./Map";

@@ -1,13 +1,13 @@
 import { Marker } from "@react-google-maps/api";
 import { getSearchLatLng } from "@/utils/searchLatLng";
 import { useGlobal } from "@/contexts/globalContext";
-import { useMarkerContext } from "@/contexts/hoverMarkerContext";
+import { useMarkerContext } from "@/contexts/markerContext";
 import useSelectMarkerHook from "@/hooks/selectMarkerHook";
 
 const ResultMarkers = () => {
   const { result } = useGlobal();
   const restaurants = getSearchLatLng(result)
-  const { hoveredMarkerId } = useMarkerContext();
+  const { hoveredCardId } = useMarkerContext();
   const { setSelectedMarker, selectedMarker } = useSelectMarkerHook();
 
   return (
@@ -22,7 +22,7 @@ const ResultMarkers = () => {
             }}
             title={item.name}
             animation={
-              hoveredMarkerId === item.id ? google.maps.Animation.BOUNCE : null
+              hoveredCardId === item.id ? google.maps.Animation.BOUNCE : null
             }
             onClick={() => setSelectedMarker({ name: item.name, id: item.id })}
           />

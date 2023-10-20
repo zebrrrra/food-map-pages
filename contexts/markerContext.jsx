@@ -7,21 +7,21 @@ export const useMarkerContext = () => {
 };
 
 export const MarkerContextProvider = ({ children }) => {
-  const [hoveredMarkerId, setHoveredMarkerId] = useState(null);
+  const [hoveredCardId, setHoveredCardId] = useState(null);
 
   useEffect(() => {
     let bounceTimeout;
-    if (hoveredMarkerId) {
+    if (hoveredCardId) {
       bounceTimeout = setTimeout(() => {
-        setHoveredMarkerId(null);
+        setHoveredCardId(null);
       }, 2000);
     }
     return () => {
       clearTimeout(bounceTimeout);
     };
-  }, [hoveredMarkerId]);
+  }, [hoveredCardId]);
   return (
-    <MarkerContext.Provider value={{ hoveredMarkerId, setHoveredMarkerId }}>
+    <MarkerContext.Provider value={{ hoveredCardId, setHoveredCardId }}>
       {children}
     </MarkerContext.Provider>
   );
