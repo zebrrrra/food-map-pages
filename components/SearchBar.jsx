@@ -39,7 +39,7 @@ const SearchBar = () => {
   // const test = () => {
   //   console.log(options)
   // }
-  const onSearchNavigate = async (e) => {
+  const onSearchNavigate = (e) => {
     e.preventDefault();
     if (!currentPosition) return alert("請提供位置");
     if (!value.trim()) return alert("請輸入文字");
@@ -101,17 +101,15 @@ const SearchBar = () => {
                     <Combobox.Option
                       key={place_id}
                       className={({ active }) =>
-                        `relative cursor-default select-none px-2 py-3 ${
-                          active ? "bg-brand-700 text-white" : "text-gray-500"
+                        `relative cursor-default select-none px-2 py-3 ${active ? "bg-brand-700 text-white" : "text-gray-500"
                         }`
                       }
                       value={description}
                     >
                       {({ selected }) => (
                         <span
-                          className={`block truncate ${
-                            selected ? "font-medium" : "font-normal"
-                          }`}
+                          className={`block truncate ${selected ? "font-medium" : "font-normal"
+                            }`}
                         >
                           {description}
                         </span>

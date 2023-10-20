@@ -15,7 +15,7 @@ const Map = ({ children }) => {
     currentPosition.lng,
   );
   let havePosition = currentPosition.lat !== 0 && currentPosition.lng !== 0;
-  console.log(havePosition);
+
   const onLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);

@@ -22,7 +22,7 @@ const DetailPage = () => {
   );
 
   const { data, isLoading } = useQuery({
-    queryKey: ["getDetail", { id: slug[1] }],
+    queryKey: ["getDetail", { id: slug[slug.length - 1] }],
     queryFn: ({ queryKey }) =>
       getDetailData({
         id: queryKey[1].id,
