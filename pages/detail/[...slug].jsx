@@ -14,7 +14,7 @@ const DetailPage = () => {
   const { isSmallScreen, mapRef, currentPosition } = useGlobal();
   const router = useRouter();
   const { slug } = router.query;
-
+  console.log(router.components["/search/[...slug]"].resolvedAs)
   const latLng = new google.maps.LatLng(
     currentPosition.lat,
     currentPosition.lng,
@@ -38,7 +38,7 @@ const DetailPage = () => {
     if (isSmallScreen) {
       setIsOpenModal(false);
     }
-    router.back();
+    router.replace(router.components["/search/[...slug]"].resolvedAs)
   };
 
   return (

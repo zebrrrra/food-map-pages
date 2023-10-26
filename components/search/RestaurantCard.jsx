@@ -4,16 +4,17 @@ import OpenLabel from "../OpenLabel";
 import ClosedLabel from "../ClosedLabel";
 import RatingStar from "../RatingStar";
 import { useGlobal } from "@/contexts/globalContext";
-import { useMarkerContext } from "@/contexts/markerContext";
 import { dollar } from "@/utils/price";
+import { useDispatch } from 'react-redux'
+import { hoverOver, hoverOut } from "@/store/hoverCardSlice";
 
 const RestaurantCard = ({ id, onCardClick, data }) => {
   const { isSmallScreen } = useGlobal();
-  const { setHoveredCardId } = useMarkerContext();
+  const dispatch = useDispatch()
 
   const handleHover = (value) => {
     if (!isSmallScreen) {
-      setHoveredCardId(value);
+      dispatch(hoverOver(value))
     }
   };
 
@@ -25,6 +26,7 @@ const RestaurantCard = ({ id, onCardClick, data }) => {
       className="flex max-w-[300px] snap-start rounded-xl bg-white px-4 pt-4 shadow-lg md:h-[150px] md:max-w-full md:cursor-pointer md:flex-row md:overflow-hidden md:px-2 md:pb-2 hover:bg-[rgb(235,235,235)]"
       id={id}
       onMouseOver={() => handleHover(id)}
+      onMouseOut={() => dispatch(hoverOut())}
       onClick={() => onCardClick({ id, name: data.name })}
     >
       <div className="h-[112px] max-w-full  md:flex md:h-full md:w-[80px] lg:w-[140px]">

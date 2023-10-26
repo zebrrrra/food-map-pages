@@ -8,6 +8,7 @@ import {
   PhoneIcon,
   ClockIcon,
   TruckIcon,
+  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { getDay } from "@/utils/day";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
@@ -32,8 +33,11 @@ const Detail = ({ onClose, data }) => {
               as="div"
               className="mx-auto max-w-sm rounded bg-white px-4 md:w-full md:max-w-[unset]"
             >
-              <div className="my-2 flex h-6 justify-start">
-                <ChevronLeftIcon className="cursor-pointer" onClick={onClose} />
+              <div className="my-4 flex h-6 justify-start" onClick={onClose}>
+                <div className="flex gap-2 cursor-pointer ">
+                  <ChevronLeftIcon className=" w-6 h-6" />
+                  <span className="text-base">搜尋清單</span>
+                </div>
               </div>
               <Carousel photos={data.detail.photos} />
 
@@ -68,22 +72,27 @@ const Detail = ({ onClose, data }) => {
                   <h4>{data.detail.data.formatted_phone_number}</h4>
                 </div>
                 <Menu as="div" className="flex items-center py-4">
-                  <ClockIcon className="mr-4 h-6 w-6" />
-                  <Menu.Button className="mr-4">營業時間</Menu.Button>
-                  <div>{today}</div>
-                  <Menu.Items className="ml-1">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <>
-                          {data.detail.data.opening_hours.weekday_text.map(
-                            (text, index) => (
-                              <div key={index}>{text}</div>
-                            ),
-                          )}
-                        </>
-                      )}
-                    </Menu.Item>
-                  </Menu.Items>
+                  {({ open }) => (
+                    <>
+                      <ClockIcon className="mr-4 h-6 w-6" />
+                      <div className="mr-4">營業時間</div>
+                      {!open ? <div>{today}</div> : null}
+                      <Menu.Button><ChevronDownIcon className="w-6 h-6" /></Menu.Button>
+                      <Menu.Items className="ml-1">
+                        <Menu.Item>
+                          {
+                            <>
+                              {data.detail.data.opening_hours.weekday_text.map(
+                                (text, index) => (
+                                  <div key={index}>{text}</div>
+                                )
+                              )}
+                            </>
+                          }
+                        </Menu.Item>
+                      </Menu.Items>
+                    </>
+                  )}
                 </Menu>
               </div>
               {/* 評論區 */}

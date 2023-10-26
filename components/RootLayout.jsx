@@ -1,5 +1,4 @@
 import { GlobalContextComponent } from "@/contexts/globalContext";
-import { MarkerContextProvider } from "@/contexts/markerContext";
 import Providers from "./Providers";
 import SearchBar from "./SearchBar";
 import Map from "./Map";
@@ -21,9 +20,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <GlobalContextComponent>
             <div className="relative h-screen w-full">
-              <MarkerContextProvider>
-                <Map>{children}</Map>
-              </MarkerContextProvider>
+              <Map>{children}</Map>
             </div>
             <SearchBar />
             <LocationButton />

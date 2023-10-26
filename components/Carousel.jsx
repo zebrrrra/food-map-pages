@@ -14,7 +14,7 @@ const Carousel = ({ photos }) => {
       navigation={true}
       pagination={{ clickable: true }}
       modules={[Navigation, Pagination]}
-      className="h-[220px] w-full"
+      className="h-[220px] w-full rounded"
     >
       {photos &&
         photos.map((item, index) => (
