@@ -45,7 +45,6 @@ export const GlobalContextComponent = ({ children }) => {
       setCurrentPosition(latLng);
     });
   }, []);
-  console.log(isSmallScreen);
 
   return (
     <GlobalContext.Provider

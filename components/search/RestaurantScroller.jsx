@@ -15,10 +15,10 @@ const RestaurantScroller = ({ data }) => {
   return (
     <>
       <div
-        className={`fixed inset-x-0 bottom-0 flex h-[200px] w-full items-end overflow-x-auto md:left-0 md:h-[90vh] md:w-72 md:overflow-y-scroll md:bg-white lg:w-[470px]`}
+        className={`fixed inset-x-0 bottom-0 flex pt-3 px-3 w-full items-end overflow-x-auto md:left-0 md:h-[90vh] md:w-72 md:overflow-y-scroll bg-white lg:w-[470px]`}
       >
         <ul
-          className="grid snap-mandatory list-none auto-cols-[300px] grid-flow-col auto-rows-[160px] gap-x-3 md:h-full md:auto-cols-[18rem] md:grid-flow-row md:auto-rows-[150px]  md:gap-y-3 lg:auto-cols-[470px] "
+          className="grid snap-mandatory list-none auto-cols-[154px] grid-flow-col auto-rows-[210px] gap-x-3 md:h-full md:auto-cols-[1fr] md:grid-flow-row md:auto-rows-[150px]  md:gap-y-3"
           ref={listRef}
         >
           {data &&

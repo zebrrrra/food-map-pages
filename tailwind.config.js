@@ -15,7 +15,9 @@ module.exports = {
       white: colors.white,
       gray: colors.slate,
       red: colors.red,
-      brand: colors.green,
+      brand: colors.teal,
+      sunsetOrange: "#F45D48",
+      yellow: "#f9bc60"
     },
     extend: {
       backgroundImage: {

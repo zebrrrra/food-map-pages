@@ -9,7 +9,7 @@ import {
   ClockIcon,
   TruckIcon,
   ChevronDownIcon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/24/solid";
 import { getDay } from "@/utils/day";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 
@@ -21,7 +21,7 @@ const Detail = ({ onClose, data }) => {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 flex h-[200px] w-full items-end overflow-x-auto md:left-0 md:h-[90vh] md:w-[35vw] md:overflow-y-scroll md:bg-white`}
+      className={`fixed inset-x-0 bottom-0 flex h-[200px] w-full items-end overflow-x-auto md:left-0 md:h-[90vh] md:w-72 md:overflow-y-scroll md:bg-white lg:w-[470px]`}
     >
       <div className={`relative z-50 hidden md:block md:h-full md:w-full`}>
         {/* scrollable container */}
@@ -43,16 +43,16 @@ const Detail = ({ onClose, data }) => {
 
               {/* 輪播圖以下詳細說明 */}
               <div className="mt-4 flex justify-between">
-                <h3 className="text-green-600 text-3xl">
+                <h3 className="text-2xl">
                   {data.detail.data.name}
                 </h3>
                 <div>
                   <div className="mb-px flex items-center ">
-                    <TruckIcon className="h-6 w-6" />
+                    <TruckIcon className="h-5 w-6" />
                     <span>{data.distance.duration}</span>
                   </div>
                   <div className="flex items-center">
-                    <MapPinIcon className="h-6 w-6" />
+                    <MapPinIcon className="h-5 w-6" />
                     <span>{data.distance.distance}</span>
                   </div>
                 </div>
@@ -63,19 +63,19 @@ const Detail = ({ onClose, data }) => {
               </div>
               <div className="divide-y">
                 <div className="flex py-4">
-                  <MapPinIcon className="mr-4 h-6 w-6" />
-                  <h4>{data.detail.data.formatted_address}</h4>
+                  <MapPinIcon className="mr-4 h-6 w-6 text-yellow" />
+                  <h4 className="text-base">{data.detail.data.formatted_address}</h4>
                 </div>
                 <div className="flex py-4">
-                  <PhoneIcon className="mr-4 h-6 w-6" />
+                  <PhoneIcon className="mr-4 h-6 w-6 text-yellow" />
                   {/* production不顯示號碼 */}
-                  <h4>{data.detail.data.formatted_phone_number}</h4>
+                  <h4 className="text-base">{data.detail.data.formatted_phone_number}</h4>
                 </div>
                 <Menu as="div" className="flex items-center py-4">
                   {({ open }) => (
                     <>
-                      <ClockIcon className="mr-4 h-6 w-6" />
-                      <div className="mr-4">營業時間</div>
+                      <ClockIcon className="mr-4 h-6 w-6 text-yellow" />
+                      <div className="mr-4 text-base">營業時間</div>
                       {!open ? <div>{today}</div> : null}
                       <Menu.Button><ChevronDownIcon className="w-6 h-6" /></Menu.Button>
                       <Menu.Items className="ml-1">

@@ -11,9 +11,8 @@ const RatingStar = ({ rating }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className={`h-4 w-4 ${
-              index < Math.round(rating) ? "text-brand-700" : "text-gray-300"
-            }`}
+            className={`h-4 w-4 ${index < Math.round(rating) ? "text-yellow" : "text-gray-300"
+              }`}
           >
             <path
               strokeLinecap="round"

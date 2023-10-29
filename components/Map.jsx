@@ -6,6 +6,17 @@ const containerStyle = {
   width: "100%",
   height: "100%",
 };
+const markerStyle = {
+  url: "/current-location.svg",
+}
+
+const options =
+{
+  backgroundColor: "#C3CBCD",
+  disableDefaultUI: true,
+  clickableIcons: false,
+  mapId: "82bd6041d8ef1156",
+}
 
 const Map = ({ children }) => {
   const { currentPosition, mapRef } = useGlobal();
@@ -27,15 +38,6 @@ const Map = ({ children }) => {
     [currentPosition.lat, currentPosition.lng],
   );
 
-  const options = useMemo(
-    () => ({
-      disableDefaultUI: true,
-      clickableIcons: false,
-      mapId: "82bd6041d8ef1156",
-    }),
-    [],
-  );
-
   return (
     <>
       <div className="fixed inset-0">
@@ -48,7 +50,7 @@ const Map = ({ children }) => {
             onLoad={onLoad}
           >
             {/* 目前位置marker */}
-            {havePosition ? <Marker position={latLng} /> : null}
+            {havePosition ? <Marker position={latLng} icon={markerStyle} zIndex={2} clickable={false} /> : null}
             {children}
           </GoogleMap>
         </div>
