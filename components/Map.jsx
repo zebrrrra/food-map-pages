@@ -13,8 +13,7 @@ const markerStyle = {
   strokeWeight: 1.5,
   strokeColor: "white",
   rotation: 0,
-  scale: 1,
-  anchor: new google.maps.Point(0, 0),
+  scale: 1
 };
 
 const options = {
