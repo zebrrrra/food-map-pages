@@ -20,10 +20,10 @@ export const GlobalContextComponent = ({ children }) => {
 
   const handleResize = useCallback(() => {
     if (mediaQueryList.matches) {
-      //  窗口小於768 像素 
+      //  窗口小於768 像素
       setIsSmallScreen(true);
     } else {
-      // 窗口大於768 像素 
+      // 窗口大於768 像素
       setIsSmallScreen(false);
     }
   }, []);

@@ -1,15 +1,15 @@
 import { Marker } from "@react-google-maps/api";
 import { useState } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import useSelectMarkerHook from "@/hooks/selectMarkerHook";
 
 const ResultMarker = ({ data }) => {
   const { setSelectedMarker } = useSelectMarkerHook();
-  const [hover, setHover] = useState(false)
-  const cardId = useSelector((state) => state.cardId.cardId)
+  const [hover, setHover] = useState(false);
+  const cardId = useSelector((state) => state.cardId.cardId);
   const router = useRouter();
-  let bouncing = router.pathname === '/search/[...slug]' && cardId === data.id
+  let bouncing = router.pathname === "/search/[...slug]" && cardId === data.id;
 
   return (
     <>
@@ -26,14 +26,12 @@ const ResultMarker = ({ data }) => {
           anchor: new google.maps.Point(0, 0),
         }}
         title={data.name}
-        animation={
-          bouncing ? google.maps.Animation.BOUNCE : null
-        }
+        animation={bouncing ? google.maps.Animation.BOUNCE : null}
         onMouseOver={() => setHover(true)}
         onMouseOut={() => setHover(false)}
         onClick={() => setSelectedMarker({ name: data.name, id: data.id })}
       />
     </>
   );
-}
-export default ResultMarker
+};
+export default ResultMarker;

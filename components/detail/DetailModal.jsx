@@ -62,16 +62,14 @@ const DetailModal = ({ isOpen, onClose, data }) => {
 
                 {/* 輪播圖以下詳細說明 */}
                 <div className="mt-4 flex items-center justify-between">
-                  <h3 className="text-xl">
-                    {data.detail.data.name}
-                  </h3>
+                  <h3 className="text-xl">{data.detail.data.name}</h3>
                   <div>
                     <div className="mb-px flex items-center ">
-                      <TruckIcon className="h-5 w-6" />
+                      <TruckIcon className="h-5 w-6 text-gray-600 opacity-80" />
                       <span>{data.distance.duration}</span>
                     </div>
                     <div className="flex items-center">
-                      <MapPinIcon className="h-5 w-6" />
+                      <MapPinIcon className="h-5 w-6 text-gray-600 opacity-80" />
                       <span>{data.distance.distance}</span>
                     </div>
                   </div>
@@ -82,30 +80,55 @@ const DetailModal = ({ isOpen, onClose, data }) => {
                 </div>
                 <div className="divide-y">
                   <div className="flex py-4">
-                    <MapPinIcon className="mr-4 h-6 w-6 text-yellow" />
-                    <h4 className="text-base">{data.detail.data.formatted_address}</h4>
+                    <MapPinIcon className="mr-4 h-6 w-6 text-gray-600 opacity-80" />
+                    <h4 className="text-base">
+                      {data.detail.data.formatted_address}
+                    </h4>
                   </div>
                   <div className="flex py-4">
-                    <PhoneIcon className="mr-4 h-6 w-6 text-yellow" />
-                    <h4 className="text-base">{data.detail.data.formatted_phone_number}</h4>
+                    <PhoneIcon className="mr-4 h-6 w-6 text-gray-600 opacity-80" />
+                    <h4 className="text-base">
+                      {data.detail.data.formatted_phone_number}
+                    </h4>
                   </div>
                   <Menu as="div" className="flex items-center py-4">
-                    <ClockIcon className="mr-4 h-6 w-6 text-yellow" />
-                    <Menu.Button className="mr-4 text-base">營業時間</Menu.Button>
-                    <div className="text-base">{today}</div>
-                    <Menu.Items className="ml-1">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <>
-                            {data.detail.data.opening_hours.weekday_text.map(
-                              (text, index) => (
-                                <div key={index}>{text}</div>
-                              ),
-                            )}
-                          </>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
+                    {({ open }) => (
+                      <>
+                        <ClockIcon className="mr-4 h-6 w-6 text-gray-600 opacity-80" />
+                        <div className={`flex ${open && "flex-col"}`}>
+                          <div className="flex flex-col">
+                            <div className="mb-1 text-base font-medium">
+                              營業時間
+                            </div>
+                            {!open ? (
+                              <div className="text-base">{today}</div>
+                            ) : null}
+                          </div>
+                          <div className="flex flex-row-reverse">
+                            <Menu.Button
+                              className={`ml-1 rounded-full border border-solid  w-6 h-6 hover:border-brand-700 hover:border-[3px] ${
+                                open ? "self-start" : "self-end"
+                              }`}
+                            >
+                              <ChevronDownIcon />
+                            </Menu.Button>
+                            <Menu.Items className="">
+                              <Menu.Item>
+                                {
+                                  <>
+                                    {data.detail.data.opening_hours.weekday_text.map(
+                                      (text, index) => (
+                                        <div key={index}>{text}</div>
+                                      ),
+                                    )}
+                                  </>
+                                }
+                              </Menu.Item>
+                            </Menu.Items>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </Menu>
                 </div>
                 {/* 評論區 */}

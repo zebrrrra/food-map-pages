@@ -17,7 +17,7 @@ module.exports = {
       red: colors.red,
       brand: colors.teal,
       sunsetOrange: "#F45D48",
-      yellow: "#f9bc60"
+      yellow: "#f9bc60",
     },
     extend: {
       backgroundImage: {

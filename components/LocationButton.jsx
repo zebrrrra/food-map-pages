@@ -1,12 +1,12 @@
 import Image from "next/image";
-import location from "@/public/my-location.svg"
+import location from "@/public/my-location.svg";
 import { useGlobal } from "@/contexts/globalContext";
 import { useRouter } from "next/router";
 
 const LocationButton = () => {
   const { mapRef, setCurrentPosition, isSmallScreen } = useGlobal();
   const router = useRouter();
-  let up = router.pathname === '/search/[...slug]' && isSmallScreen
+  let up = router.pathname === "/search/[...slug]" && isSmallScreen;
   const handlePanToLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setCurrentPosition((prev) => ({
@@ -25,7 +25,9 @@ const LocationButton = () => {
   };
   return (
     <div
-      className={`fixed right-4  flex h-10 w-10 items-center rounded bg-white drop-shadow-md hover:bg-[#F4F5F4] ${up ? "bottom-56" : "bottom-8"}`}
+      className={`fixed right-4  flex h-10 w-10 items-center rounded bg-white drop-shadow-md hover:bg-[#F4F5F4] ${
+        up ? "bottom-56" : "bottom-8"
+      }`}
       onClick={handlePanToLocation}
     >
       <Image

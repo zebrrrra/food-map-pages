@@ -1,9 +1,7 @@
 import RootLayout from "@/components/RootLayout";
 
 export default function Home() {
-  return (
-    <></>
-  );
+  return <></>;
 }
 
 Home.getLayout = function getLayout(page) {

@@ -37,7 +37,7 @@ const DetailPage = () => {
     if (isSmallScreen) {
       setIsOpenModal(false);
     }
-    router.replace(router.components["/search/[...slug]"].resolvedAs)
+    router.replace(router.components["/search/[...slug]"].resolvedAs);
   };
 
   return (

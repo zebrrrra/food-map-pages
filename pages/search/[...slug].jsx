@@ -43,7 +43,6 @@ const SearchPage = () => {
     }
   }, [slug[0], slug[1], slug[2], isSuccess, isError]);
 
-
   if (isLoading) {
     return <Loading />;
   }

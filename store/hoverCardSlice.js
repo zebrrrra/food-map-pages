@@ -1,18 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 export const hoverSlice = createSlice({
   name: "hover",
   initialState: {
-    cardId: null
+    cardId: null,
   },
   reducers: {
     hoverOver: (state, action) => {
-      state.cardId = action.payload
+      state.cardId = action.payload;
     },
     hoverOut: (state) => {
-      state.cardId = null
+      state.cardId = null;
     },
-  }
-})
+  },
+});
 
-export const { hoverOver, hoverOut } = hoverSlice.actions
-export default hoverSlice.reducer
+export const { hoverOver, hoverOut } = hoverSlice.actions;
+export default hoverSlice.reducer;

@@ -8,7 +8,7 @@ const useSelectMarkerHook = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!selectedMarker) return
+    if (!selectedMarker) return;
     if (selectedMarker) {
       if (isSmallScreen) {
         const target = listRef.current.querySelector(`#${selectedMarker.id}`);
